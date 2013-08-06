@@ -1,19 +1,8 @@
-/* 
- * File:   main.c
- * Author: fernando
- *
- * Created on August 5, 2013, 10:29 PM
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "conversion.h"
 //#include "ring.h"
 #include "knapsack.h"
-
-/*
- * 
- */
 
 
 

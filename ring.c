@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <stdio.h>
 #include "ring.h"
 
 Poly add_polys (Poly a, Poly b) {
