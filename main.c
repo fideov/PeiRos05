@@ -19,6 +19,7 @@
 
 int main(int argc, char** argv) {
 
+    // some debug checks follow
     int i;
     Poly a, b;
     
