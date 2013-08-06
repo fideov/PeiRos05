@@ -1,4 +1,3 @@
-#include "ring.h"
 #define M 10
 
 typedef struct {
