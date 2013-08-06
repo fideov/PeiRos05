@@ -2,7 +2,7 @@
 #define P 100
 
 typedef struct {
-  int coeff[P];
+  int coeff[N];
 } Poly;
 
 Poly add_polys (Poly a, Poly b);

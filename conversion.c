@@ -9,8 +9,25 @@ int s2i(char** string) {
 }
  */
 
-int bin2ring(int** string) {
-    return 0;
+Poly bin2ring(BinPoly bp) {
+    Poly p;
+    int i;
+    
+    for (i = 0; i < N-1; i++){
+        
+        p.coeff[i] = two2ten(bp.coeff[i]);
+    }
+    
+    return p;
+}
+
+int two2ten(int* two) {
+    int ten = 0;
+    int n = (int)log2(P) + 1;
+    int i;
+    for (i = n; i != 0; i--)
+        ten += (two[n-i] << (i-1));
+    return ten;
 }
 
 void ten2two(int ten, int* two) {
@@ -32,10 +49,10 @@ BinPoly ring2bin(Poly p) {
     BinPoly bp;
     int j, i;
     for (j = 0; j < N - 1; j++){
-        printf ("\n%d\t%d\t", j, p.coeff[j]);
+        //printf ("\n%d\t%d\t", j, p.coeff[j]);
         ten2two(p.coeff[j], bp.coeff[j]);
-        for (i = 0; i < C; i++)
-            printf("%d ", bp.coeff[j][i]);
+        //for (i = 0; i < C; i++)
+        //    printf("%d ", bp.coeff[j][i]);
     }
     return bp;
 }

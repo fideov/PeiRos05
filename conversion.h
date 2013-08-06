@@ -5,6 +5,7 @@ typedef struct {
 } BinPoly;
 
 //int s2i(char** string);
-int bin2ring(int** string);
+Poly bin2ring(BinPoly bp);
 void ten2two(int ten, int* two);
+int two2ten(int* two);
 BinPoly ring2bin(Poly p);
