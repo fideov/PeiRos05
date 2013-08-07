@@ -4,12 +4,13 @@
 #include "knapsack.h"
 #include "conversion.h"
 #include "math.h"
-
+#include <stdbool.h>
 
 
 
 int main(int argc, char** argv) {
 
+    
     /*
     // some debug checks follow
     int i, j;
