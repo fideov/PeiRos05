@@ -1,5 +1,6 @@
 #define N 71
 #define P 100
+#define D P
 
 typedef struct {
   int coeff[N];

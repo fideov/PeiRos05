@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "ring.h"
 #include "knapsack.h"
 #include "conversion.h"
 #include "math.h"
-#include <stdbool.h>
-
 
 
 int main(int argc, char** argv) {
@@ -38,13 +37,14 @@ int main(int argc, char** argv) {
     show_word(alfa);
     */
     
-     Poly a;
-     int i, j;
+/*
+    Poly a;
+    int i, j;
     a.coeff[0] = 1;
     a.coeff[1] = 5;
     for (i = 2; i < N; i++)
         a.coeff[i] = 0;
-    a.coeff[4] = 31;
+    a.coeff[4] = 51;
     
     BinPoly bp = ring2bin(a);
     
@@ -53,10 +53,14 @@ int main(int argc, char** argv) {
         for (j = 0; j <= log2(P); j++)
             printf("%d", bp.coeff[i][j]);
     }
-    Poly p = bin2ring(bp);
-    show_poly(p);
     
-     
+    
+    // for some black magic reason this won't work unless bin2ring doesn't
+    // return a Poly. is a fix to do, the correct use is although the following
+    Poly p;
+    bin2ring(bp, &p);
+    show_poly(p);
+*/
     
    /*
     //ten2two works
@@ -68,7 +72,6 @@ int main(int argc, char** argv) {
         printf ("%d", nt[i]);
     printf("\n%d", (int)log2(P)+1);
     */
-    
     
     return (EXIT_SUCCESS);
 }
