@@ -55,23 +55,40 @@ int main(int argc, char** argv) {
     }
     
     
-    // for some black magic reason this won't work unless bin2ring doesn't
     // return a Poly. is a fix to do, the correct use is although the following
     Poly p;
+    // for some black magic reason this won't work unless bin2ring doesn't
     bin2ring(bp, &p);
     show_poly(p);
 */
     
-   /*
+/*
+   
     //ten2two works
-    int n = 100; //less than 128 = 2^((int)log2(P) + 1)
-    int nt[(int)log2(P) + 1];
-    ten2two(n, nt);
+    int n = 36; //less than 128 = 2^((int)log2(P) + 1)
+    bool nt[(int)log2(P) + 1];
     int i;
+    
+    ten2two(n, nt);
+    //int i;    
     for (i = 0; i <= log2(P); i++)
-        printf ("%d", nt[i]);
-    printf("\n%d", (int)log2(P)+1);
-    */
+        printf ("%d ", nt[i]);
+    
+*/
+    
+/*
+    
+    //byte2two works
+    char n = 127;
+    bool nt[8];
+    int i;
+    
+    byte2two(n, nt);
+    for (i = 0; i < 8; i++)
+        printf ("%d ", nt[i]);
+    
+*/
+    
     
     return (EXIT_SUCCESS);
 }

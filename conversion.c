@@ -63,6 +63,12 @@ int two2ten(bool* two) {
 
 void ten2two(int ten, bool* two) {
     // we assume two[] is long enough, ie (int) log2(P) + 1
+    // you need to input a bool []!!! int [] will mess up with step
+    //eg. p.coeff[0] = 6  = 00000110
+    //for bp.coeff[0] = {random values, 0, 0, 0, 0, 0, 1, 1, 0} after do-while
+    //and bp.coeff[0] = {0, 0, ..., 0,  0, 0, 0, 0, 0, 1, 1, 0} after for(;...) 
+    
+    
     int len = (int) log2(P) + 1;
     int res;
     int i = len - 1;
@@ -74,6 +80,32 @@ void ten2two(int ten, bool* two) {
     } while (ten > 0);
     for (; i >= 0; i--)
         two[i] = (bool) 0;    
+    printf ("\n");
+    for (i = 0; i <= log2(P); i++)
+        printf ("%d ", (bool)two[i]);
+    printf ("\nadd = %d\n", &two[0]);
+}
+
+void byte2two(char byte, bool* two) {
+    // we assume two[] is long enough, ie (int) log2(P) + 1
+    
+    // here we make use of << to read from the right each bit. idea:
+    // I have 0010. if ((0010 >> 1) << 1 == 0010) then last digit is 0
+    // hence I do the same comparing ((0010 >> 1) >> 1) << 1 == (0010 >> 1)
+    // for the second digit
+    // this doesn't care if libc uses logic or arithmetic >>
+    
+    // two fits 8 bools.
+    
+    // the output looks to be mod 256
+    int len = 8;
+    char temp = byte;
+    int i;
+    
+    for (i = 0; i < len; i++){
+        two[len-i-1] = (bool) !((temp >> 1) << 1 == temp);
+        temp = temp >> 1;
+    }
 }
 
 BinPoly ring2bin(Poly p) {

@@ -13,8 +13,14 @@ typedef struct {
 //int s2i(char** string);
 Poly bin2ring(BinPoly bp, Poly * ptr);
 void ten2two(int ten, bool* two);
+void byte2two(char byte, bool* two);
 int two2ten(bool* two);
 BinPoly ring2bin(Poly p);
+
+// TODO: fix bin2ring to be void.
+// WTF: what do I do with ring2poly for negative coordinates?
+// It appears from how I don't care of sign in bin2ring and on the lack
+// of specifications in ring2poly that I consider +/-v as the same vector
 
 
 //sorting stuff
